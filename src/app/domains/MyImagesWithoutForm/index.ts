@@ -1,18 +1,18 @@
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import MyImagesWithoutForm from './MyImagesWithoutForm';
-import { getAllBreeds } from '../../selectors';
-import {addBreed, receiveInitialBreeds, deleteAllBreeds} from '../../actions';
+import { selectAllBreeds, selectLoadStatus } from '../../store/domains/selectors';
+import { addBreed, receiveInitialBreeds } from '../../store/domains/actions';
 
 const mapStateToProps = (state,ownProps) => {
   return {
-    breeds: getAllBreeds(state)
+    breeds: selectAllBreeds(state),
+    isLoading: selectLoadStatus(state)
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return ({
     addBreed: (url) => dispatch(addBreed(url)),
-    deleteAllBreeds: () => dispatch(deleteAllBreeds()),
     receiveBreeds: () => dispatch(receiveInitialBreeds())
   })
 }

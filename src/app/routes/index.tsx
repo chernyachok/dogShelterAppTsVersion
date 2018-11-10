@@ -1,14 +1,13 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import {Switch, Route } from 'react-router-dom';
+import Navbar from '../components/Navbar';
+import MyImages from '../components/MyImages';
 
-export const getRoutes = () => {
-  return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/" component={MyImages} />
-        <Route path="/allbreeds" component={AllBreeds} />
-        <Route path="/:breed_id" component={SingleBreed} />
-      </Switch>
-    </BrowserRouter>
-  )
-}
+export default () => (
+  <div className="container">
+    <Navbar/>
+    <Switch>
+        <Route exact path="/" component={MyImages}/>
+    </Switch>
+  </div>
+)

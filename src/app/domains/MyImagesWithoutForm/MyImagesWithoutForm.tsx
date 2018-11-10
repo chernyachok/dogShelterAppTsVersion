@@ -1,40 +1,38 @@
 import React, {Component} from 'react';
-
 import {Link} from 'react-router-dom';
-
 import Img from '../../components/Img';
-import withSpinner from '../../components/withSpinner';
-import ApiClient from '../../services/ApiClient'
-import ContactForm from '../../components/ContactForm';
+import './index.css'
 
+interface IAppProps{
+  breeds: [object];
+  isLoading: boolean
+}
 
-class MyImagesWithoutForm extends Component{
+class MyImagesWithoutForm extends Component<IAppProps>{
 
   componentDidMount(){
     this.props.receiveBreeds()
   }
 
   render(){
-    const {breeds} = this.props;
+    const { breeds, isLoading} = this.props;
     const currentBreeds = breeds.length
           ? (breeds.map((item,index) => {
-            return <Link to={"/"+item.id}><Img key= {index} className="class1" src={item.src} title={`Dog  ${index}`}/></Link>
+            return <Link to={"/"+item.id}><Img key= {index} src={item.src} title={`Dog  ${index}`}/></Link>
           }))
           : (
             <div className="center">No breeds in collection.</div>
           )
     return (
-      <div id="container">
-        <div className="imgsAndButton">
-          <div id="my_images">
-          {
-            currentBreeds
-          }
-          </div>
-          <div id="my_button" >
-            <button className="seeMore" onClick={() => this.handleFetch(3)}>See more</button>
-              <button className="seeMore" onClick={() => this.props.deleteAllBreeds()}>Remove all breeds</button>
-          </div>
+      <div className="col s12 ">
+      { isLoading && 'Loading...'}
+        <div className="collection">
+        {
+          currentBreeds
+        }
+        </div>
+        <div >
+          <button className="btn btn-grey" onClick={() => this.handleFetch(3)}>See more</button>
         </div>
       </div>
     )

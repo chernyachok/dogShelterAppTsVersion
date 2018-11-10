@@ -5,14 +5,13 @@ const initState ={
 
 
 const breedsReducer = (state = initState,action) => {
-  if(action.type === `ADD_BREED_PENDING`){
-    const breeds = state.breeds.concat(action.payload)
-    return {
+  if(action.type === 'ADD_BREED_PENDING'){
+    return {//all initState object
       ...state,
       isLoading: true
     }
   }
-  if(action.type === `ADD_BREED_FULFILLED`){
+  if(action.type === 'ADD_BREED_FULFILLED'){
     const { payload } = action
     let breeds =[];
     payload.message.forEach((dog, index) => {
@@ -29,20 +28,7 @@ const breedsReducer = (state = initState,action) => {
   if(action.type === 'ADD_BREED_REJECTED'){
     console.log('rejected');
   }
-  if(action.type === 'DELETE_BREED'){
-    const breeds = state.breeds.filter(item => item.id != action.payload);
-    return {
-      ...state,
-      breeds
-    }
-  }
-  if(action.type === 'DELETE_ALL_BREEDS'){
-    const breeds = [];
-    return {
-      ...state,
-      breeds
-    }
-  }
+
   if(action.type === 'RECEIVE_INITIAL_BREEDS_PENDING'){
     return {
       ...state,

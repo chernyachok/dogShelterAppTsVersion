@@ -1,11 +1,10 @@
-import promiseMiddleware from 'redux-promise-middleware';
 import thunk from 'redux-thunk';
+import promiseMiddleware from 'redux-promise-middleware';
 
-export default function createMiddleware() {
-  const middlewares = [
-    thunk,
-    promiseMiddleware(),
-  ];
-
-  return middlewares;
+export default function createMiddleware(){
+  const middleware = [
+      thunk,
+      promiseMiddleware()
+  ]
+  return middleware;
 }

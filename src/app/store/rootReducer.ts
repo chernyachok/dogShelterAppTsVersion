@@ -3,4 +3,4 @@ import breedsReducer from './domains/breedsReducer';
 
 export default combineReducers({
   breedsReducer
-})
+});

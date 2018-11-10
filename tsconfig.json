@@ -27,5 +27,8 @@
     "webpack",
     "jest",
     "src/setupTests.ts"
-  ]
+  ],
+  "resolve": {
+   "extensions": [".js", ".json", ".ts", ".tsx"],
+ },
 }
