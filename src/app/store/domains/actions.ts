@@ -13,3 +13,9 @@ export const receiveInitialBreeds = () => {
       payload: ApiClient.get('https://dog.ceo/api/breeds/image/random/3')
     }
 }
+export const removeBreed = (breedId) => {
+  return {
+    type: 'REMOVE_BREED',
+    payload: breedId
+  }
+}

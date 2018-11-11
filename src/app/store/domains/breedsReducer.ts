@@ -47,6 +47,13 @@ const breedsReducer = (state = initState,action) => {
   if(action.type === 'RECEIVE_INITIAL_BREEDS_REJECTED'){
     console.log('rejected...');
   }
+  if(action.type === 'REMOVE_BREED'){
+  const breeds = state.breeds.filter(item => item.id !== action.payload)
+  return {
+    ...state,
+    breeds
+  }
+}
   return state;
 }
 

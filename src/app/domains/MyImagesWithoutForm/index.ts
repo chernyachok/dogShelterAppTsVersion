@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import MyImagesWithoutForm from './MyImagesWithoutForm';
 import { selectAllBreeds, selectLoadStatus } from '../../store/domains/selectors';
-import { addBreed, receiveInitialBreeds } from '../../store/domains/actions';
+import { addBreed, receiveInitialBreeds, removeBreed } from '../../store/domains/actions';
 
 const mapStateToProps = (state,ownProps) => {
   return {
@@ -13,7 +13,8 @@ const mapStateToProps = (state,ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return ({
     addBreed: (url) => dispatch(addBreed(url)),
-    receiveBreeds: () => dispatch(receiveInitialBreeds())
+    receiveBreeds: () => dispatch(receiveInitialBreeds()),
+    removeBreed: (breedId) => dispatch(removeBreed(breedId))
   })
 }
 

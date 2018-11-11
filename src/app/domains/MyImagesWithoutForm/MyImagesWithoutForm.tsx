@@ -2,13 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import Img from '../../components/Img';
 import './index.css'
-
-interface IAppProps{
-  breeds: [object];
-  isLoading: boolean
-}
-
-class MyImagesWithoutForm extends Component<IAppProps>{
+class MyImagesWithoutForm extends Component{
 
   componentDidMount(){
     this.props.receiveBreeds()
@@ -18,7 +12,7 @@ class MyImagesWithoutForm extends Component<IAppProps>{
     const { breeds, isLoading} = this.props;
     const currentBreeds = breeds.length
           ? (breeds.map((item,index) => {
-            return <Link to={"/"+item.id}><Img key= {index} src={item.src} title={`Dog  ${index}`}/></Link>
+            return <Img key= {index} handleRemoveBreed={(id) => this.handleRemoveBreed(id)} breedId={item.id} src={item.src} title={`Dog  ${index}`}/>
           }))
           : (
             <div className="center">No breeds in collection.</div>
@@ -38,9 +32,14 @@ class MyImagesWithoutForm extends Component<IAppProps>{
     )
   };
 
-  handleFetch = (param) => {
+ handleFetch = (param) => {
    this.props.addBreed(`https://dog.ceo/api/breeds/image/random/3`);
  }
+
+ handleRemoveBreed = (breedId) => {
+   this.props.removeBreed(breedId);
+ }
+
 }
 
 export default MyImagesWithoutForm;
