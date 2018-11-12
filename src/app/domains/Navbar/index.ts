@@ -1,11 +1,11 @@
-import React from 'react';
+import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import Navbar from './Navbar';
 import { searchBreed } from '../../store/domains/actions';
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: Dispatch) => {
 	return {
-		searchBreed: (breedId) => dispatch(searchBreed(breedId))
+		searchBreed: (breedId: number) => dispatch(searchBreed(breedId))
 	}
 }
 

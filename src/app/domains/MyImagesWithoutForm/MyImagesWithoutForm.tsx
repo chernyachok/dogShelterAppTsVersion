@@ -1,8 +1,17 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import * as React from 'react';
 import Img from '../../components/Img';
 import './index.css'
-class MyImagesWithoutForm extends Component{
+import { breeds } from '../../store/domains/StoreState';
+
+interface IMyImgsProps {
+  breeds: Array<breeds>;
+  isLoading: boolean;
+  addBreed: (url: string) => void;
+  removeBreed: (breedId: number) => void;
+  receiveBreeds: () => void;
+}
+
+class MyImagesWithoutForm extends React.Component<IMyImgsProps>{
 
   componentDidMount(){
     this.props.receiveBreeds()
@@ -32,11 +41,11 @@ class MyImagesWithoutForm extends Component{
     )
   };
 
- handleFetch = (param) => {
-   this.props.addBreed(`https://dog.ceo/api/breeds/image/random/3`);
+ handleFetch = (param: number) => {
+   this.props.addBreed(`https://dog.ceo/api/breeds/image/random/${param}`);
  }
 
- handleRemoveBreed = (breedId) => {
+ handleRemoveBreed = (breedId: number) => {
    this.props.removeBreed(breedId);
  }
 

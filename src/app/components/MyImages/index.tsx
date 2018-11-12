@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import * as React from 'react';
 import ContactForm from '../ContactForm';
 import MyImagesWithoutForm from '../../domains/MyImagesWithoutForm';
 

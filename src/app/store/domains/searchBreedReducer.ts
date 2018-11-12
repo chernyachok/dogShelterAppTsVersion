@@ -1,5 +1,5 @@
 const initState = {
-  breedToBeSearched: null
+  breedToBeSearched: 0
 }
 
 const searchBreedReducer = (state = initState, action) => {

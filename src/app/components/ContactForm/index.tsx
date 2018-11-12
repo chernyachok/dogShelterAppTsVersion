@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
+import * as React from 'react';
 
 const ContactForm = () => (
-      <div class="row">
-       <form class="col s12">
+      <div className="row">
+       <form className="col s12">
          <h4>Leave your rewiew</h4>
-         <div class="row">
-           <div class="input-field col s12">
-             <input id="email" type="email" class="validate"/>
-             <label for="email">Email</label>
+         <div className="row">
+           <div className="input-field col s12">
+             <input id="email" type="email" className="validate"/>
+             <label htmlFor="email">Email</label>
              <textarea placeholder="Description" className="materialize-textarea"></textarea><br/>
              <input type="submit" className="btn btn-gray" value="Send"/>
            </div>
