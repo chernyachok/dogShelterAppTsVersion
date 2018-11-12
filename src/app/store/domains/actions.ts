@@ -19,3 +19,10 @@ export const removeBreed = (breedId) => {
     payload: breedId
   }
 }
+
+export const searchBreed = (breedId) => {
+  return {
+    type: 'SEARCH_BREED',
+    payload: breedId
+  }
+}
